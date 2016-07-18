@@ -1,17 +1,21 @@
 def answer(heights):
-    max_height = max(heights)
-    level_height = 1
+    if len(heights) < 3:
+        return 0
     answer = 0
-    while level_height <= max_height -1:
-        level = []
-        count = 1
-        for height in heights:
-            if height >= level_height:
-                level.append(count)
-            count +=1
-        start, end = level[0], level[-1]
-        full_level = range(start, end + 1)
-        gaps = [x for x in full_level if not x in level]
-        answer += len(gaps)
-        level_height += 1
+    position = 0
+    while position < len(heights) - 1:
+        target = position + 1
+        for stack in range(position + 1, len(heights)):
+            if heights[stack] >= heights[position]:
+                target = stack
+                break
+            if heights[stack] > heights[target]:
+                target = stack
+        if target == position:
+            return(answer)
+        top = min(heights[position], heights[target])
+        position += 1
+        while position < target:
+            answer += top - heights[position]
+            position += 1
     return(answer)
