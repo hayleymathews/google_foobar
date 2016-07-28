@@ -1,6 +1,6 @@
 ## What? ##
 
-once upon a time hayley forgot how arparse worked and had to look it up. then google invited her down the rabbit hole.  
+once upon a time hayley forgot how argparse worked and had to look it up. then google invited her down the rabbit hole.    
 
 
 
